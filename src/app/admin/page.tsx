@@ -27,7 +27,7 @@ export default function AdminLogin() {
               type="text"
               name="username"
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-2 border"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-2 border text-black"
             />
           </div>
           <div>
@@ -36,7 +36,7 @@ export default function AdminLogin() {
               type="password"
               name="password"
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-2 border"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-2 border text-black"
             />
           </div>
           {state?.error && <p className="text-red-500 text-sm">{state.error}</p>}

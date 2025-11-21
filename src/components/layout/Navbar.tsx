@@ -2,18 +2,25 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 
 export default async function Navbar() {
-  const categories = await prisma.navCategory.findMany({
-    include: {
-      pages: {
-        orderBy: {
-          order: 'asc',
+  let categories: any[] = [];
+  try {
+    categories = await prisma.navCategory.findMany({
+      include: {
+        pages: {
+          orderBy: {
+            order: 'asc',
+          },
         },
       },
-    },
-    orderBy: {
-      order: 'asc',
-    },
-  });
+      orderBy: {
+        order: 'asc',
+      },
+    });
+  } catch (error) {
+    console.error('Failed to fetch navigation categories (likely due to build time DB connection issue):', error);
+    // Return empty array to allow build to proceed without DB
+    categories = [];
+  }
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">

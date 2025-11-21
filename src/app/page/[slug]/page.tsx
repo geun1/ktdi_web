@@ -1,8 +1,38 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 
+import { Metadata } from 'next';
+
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
+
+  const page = await prisma.page.findUnique({
+    where: { slug: decodedSlug },
+  });
+
+  if (!page) {
+    return {
+      title: 'Page Not Found',
+    };
+  }
+
+  // Strip HTML tags for description (simple regex)
+  const description = page.content.replace(/<[^>]*>?/gm, '').slice(0, 160) + '...';
+
+  return {
+    title: page.title,
+    description: description,
+    openGraph: {
+      title: page.title,
+      description: description,
+      type: 'article',
+    },
+  };
 }
 
 export default async function DynamicPage({ params }: PageProps) {
