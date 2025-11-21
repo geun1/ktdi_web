@@ -16,9 +16,14 @@ export default async function Navbar() {
         order: 'asc',
       },
     });
+    console.log(`[Navbar] Successfully fetched ${categories.length} navigation categories`);
   } catch (error) {
-    console.error('Failed to fetch navigation categories (likely due to build time DB connection issue):', error);
-    // Return empty array to allow build to proceed without DB
+    console.error('[Navbar] Failed to fetch navigation categories:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      timestamp: new Date().toISOString(),
+    });
+    // Return empty array to allow page to render without navbar items
     categories = [];
   }
 
