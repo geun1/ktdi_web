@@ -2,6 +2,9 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import EditPageForm from './EditPageForm';
 
+// Force dynamic rendering (no static generation at build time)
+export const dynamic = 'force-dynamic';
+
 interface EditPageProps {
   params: Promise<{ id: string }>;
 }

@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { deletePage } from './actions';
 import { Plus, Pencil, Trash2, FileText } from 'lucide-react';
 
+// Force dynamic rendering (no static generation at build time)
+export const dynamic = 'force-dynamic';
+
 export default async function PagesManagementPage() {
   const pages = await prisma.page.findMany({
     include: {

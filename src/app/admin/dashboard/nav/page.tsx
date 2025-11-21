@@ -2,6 +2,9 @@ import { prisma } from '@/lib/prisma';
 import { createCategory, deleteCategory, updateCategory } from './actions';
 import { Plus, Pencil, Trash2 } from 'lucide-react';
 
+// Force dynamic rendering (no static generation at build time)
+export const dynamic = 'force-dynamic';
+
 export default async function NavManagementPage() {
   const categories = await prisma.navCategory.findMany({
     orderBy: { order: 'asc' },
