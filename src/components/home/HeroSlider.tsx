@@ -7,8 +7,6 @@ import Image from 'next/image';
 const images = [
   'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1504384308090-c54be3852f33?q=80&w=2070&auto=format&fit=crop', // This one was reported broken, replacing or keeping if it was transient. Let's replace it to be safe.
-  // Actually, let's replace the broken one with a working one.
   'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop',
 ];
 
