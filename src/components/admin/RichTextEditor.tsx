@@ -157,13 +157,15 @@ export default function RichTextEditor({ value, onChange }: RichTextEditorProps)
         }
       `}</style>
       <ReactQuill
-        ref={reactQuillRef}
-        theme="snow"
-        value={value}
-        onChange={onChange}
-        modules={modules}
-        formats={formats}
-        className="h-96 mb-12"
+        {...({
+          ref: reactQuillRef,
+          theme: 'snow',
+          value: value,
+          onChange: onChange,
+          modules: modules,
+          formats: formats,
+          className: 'h-96 mb-12',
+        } as any)}
       />
     </div>
   );
