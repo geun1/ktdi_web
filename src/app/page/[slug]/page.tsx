@@ -58,7 +58,7 @@ export default async function DynamicPage({ params }: PageProps) {
           {page.title}
         </h1>
         <div 
-          className="prose prose-lg max-w-none text-gray-700"
+          className="prose prose-lg max-w-none text-gray-700 [&_img]:max-w-full [&_img]:h-auto [&_img]:block [&_img]:my-6 [&_img]:rounded-lg [&_p]:text-gray-700 [&_p]:leading-relaxed"
           dangerouslySetInnerHTML={{ __html: page.content }}
         />
       </div>

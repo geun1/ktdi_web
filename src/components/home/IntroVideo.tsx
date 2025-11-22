@@ -7,24 +7,19 @@ export default function IntroVideo() {
           <p className="text-lg text-gray-600">대한재능개발원의 비전과 가치를 확인하세요</p>
         </div>
         <div className="relative aspect-video w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl bg-black">
-          {/* Placeholder for video - using a static image or a dummy video for now */}
-          <div className="absolute inset-0 flex items-center justify-center text-white">
-             <p>Video Placeholder (Upload your video to public/video.mp4)</p>
-             {/* 
-             <video controls className="w-full h-full object-cover">
-               <source src="/video.mp4" type="video/mp4" />
-               Your browser does not support the video tag.
-             </video>
-             */}
-          </div>
-          {/* Using an iframe for demo purposes if no local video */}
-          <iframe 
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=ad" 
-            title="KTDI Intro"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
+          {/* Local video player */}
+          <video 
+            controls 
+            className="w-full h-full object-cover"
+            poster="/images/video-poster.jpg"
+          >
+            <source src="/videos/intro.mp4" type="video/mp4" />
+            <source src="/videos/intro.webm" type="video/webm" />
+            귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
+          </video>
+        </div>
+        <div className="mt-6 text-center text-sm text-gray-500">
+          <p>영상을 업로드하려면: <code className="bg-gray-200 px-2 py-1 rounded">public/videos/intro.mp4</code> 파일을 추가하세요</p>
         </div>
       </div>
     </section>

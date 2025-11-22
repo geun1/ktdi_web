@@ -23,14 +23,21 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li>Email: contact@ktdi.co.kr</li>
-              <li>Tel: 02-1234-5678</li>
-              <li>Address: 서울특별시 강남구 테헤란로 123</li>
+              <li>고객센터: 02-553-9523 (09:00~17:00)</li>
+              <li>연수상담 신청문자: 010-7935-9556</li>
+              <li>주소: 서울특별시 송파구 법원로 114,<br />에이동 903호(문정동, 엠스테이트)</li>
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} KTDI. All rights reserved.
+        <div className="mt-8 pt-8 border-t border-gray-700">
+          <div className="text-sm text-gray-400 space-y-1">
+            <p>교육법인 대한재능개발원장 김성곤</p>
+            <p>사업자등록번호: 683-86-03126</p>
+            <p>개인정보처리방침 | 개인정보관리 책임자: 김명서</p>
+          </div>
+          <div className="mt-4 text-center text-sm text-gray-500">
+            COPYRIGHT © 대한재능개발원 ALL RIGHTS RESERVED.
+          </div>
         </div>
       </div>
     </footer>
