@@ -19,7 +19,6 @@ export default function IntroVideo() {
           </video>
         </div>
         <div className="mt-6 text-center text-sm text-gray-500">
-          <p>영상을 업로드하려면: <code className="bg-gray-200 px-2 py-1 rounded">public/videos/intro.mp4</code> 파일을 추가하세요</p>
         </div>
       </div>
     </section>

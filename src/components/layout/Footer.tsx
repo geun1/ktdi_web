@@ -15,9 +15,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">바로가기</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link href="/about" className="hover:text-white">개발원 소개</Link></li>
-              <li><Link href="/license" className="hover:text-white">자격증 소개</Link></li>
-              <li><Link href="/ai-course" className="hover:text-white">AI 연수과정</Link></li>
+              <li><Link href="/page/introduction" className="hover:text-white">개발원 소개</Link></li>
+              <li><Link href="/page/go-instructor" className="hover:text-white">바둑지도사 과정</Link></li>
+              <li><Link href="/page/ai-basic" className="hover:text-white">AI 연수과정</Link></li>
+              <li><Link href="/page/consultation" className="hover:text-white">상담 및 신청</Link></li>
             </ul>
           </div>
           <div>

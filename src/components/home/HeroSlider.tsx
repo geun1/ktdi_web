@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const images = [
-  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop',
+  '/images/hero/main-1.avif',
+  '/images/hero/main-2.avif',
+  '/images/hero/main-3.avif',
+  '/images/hero/main-4.avif',
+  '/images/hero/main-5.avif'
 ];
 
 export default function HeroSlider() {
