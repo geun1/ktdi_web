@@ -2,6 +2,7 @@ import HeroSlider from "@/components/home/HeroSlider";
 import IntroVideo from "@/components/home/IntroVideo";
 import Image from "next/image";
 import Link from "next/link";
+import { Calendar, Tag } from "lucide-react";
 
 const newsItems = [
   {
@@ -10,6 +11,8 @@ const newsItems = [
     description: "AI 기술을 실무에 바로 적용할 수 있는 심화 교육 프로그램이 성공적으로 진행되었습니다.",
     image: "/images/hero/main-1.avif",
     link: "/page/ai-advanced",
+    date: "2024.11.20",
+    category: "AI 연수과정",
   },
   {
     id: 2,
@@ -17,6 +20,8 @@ const newsItems = [
     description: "체스 대회의 공정한 진행을 위한 전문 심판 양성 과정이 개설되었습니다.",
     image: "/images/hero/main-3.avif",
     link: "/page/chess-referee",
+    date: "2024.11.18",
+    category: "자격증 과정",
   },
   {
     id: 3,
@@ -24,6 +29,8 @@ const newsItems = [
     description: "체계적인 바둑 이론과 교수법을 갖춘 우수한 바둑지도사를 양성합니다.",
     image: "/images/hero/main-4.avif",
     link: "/page/go-instructor",
+    date: "2024.11.15",
+    category: "자격증 과정",
   },
 ];
 
@@ -50,8 +57,18 @@ export default function Home() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                      <Tag className="w-3 h-3" />
+                      {item.category}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-6 text-left">
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{item.date}</span>
+                  </div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>

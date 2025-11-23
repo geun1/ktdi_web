@@ -1,16 +1,47 @@
 import Link from 'next/link';
+import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-2">
             <h3 className="text-xl font-bold mb-4">대한재능개발원 (KTDI)</h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-gray-300 mb-4">
               미래를 선도하는 AI 교육의 중심,<br />
               대한재능개발원입니다.
             </p>
+            {/* SNS Links */}
+            <div className="flex gap-3">
+              <a
+                href="http://pf.kakao.com/_xfxnxexdG"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors"
+                aria-label="카카오톡 채널"
+              >
+                <MessageCircle className="w-5 h-5 text-gray-900" />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors"
+                aria-label="페이스북"
+              >
+                <Facebook className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-pink-600 rounded-full hover:bg-pink-700 transition-colors"
+                aria-label="인스타그램"
+              >
+                <Instagram className="w-5 h-5 text-white" />
+              </a>
+            </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">바로가기</h4>
@@ -34,7 +65,13 @@ export default function Footer() {
           <div className="text-sm text-gray-400 space-y-1">
             <p>교육법인 대한재능개발원장 김성곤</p>
             <p>사업자등록번호: 683-86-03126</p>
-            <p>개인정보처리방침 | 개인정보관리 책임자: 김명서</p>
+            <p>
+              <Link href="/privacy" className="hover:text-white underline">
+                개인정보처리방침
+              </Link>
+              {' | '}
+              개인정보관리 책임자: 김명서
+            </p>
           </div>
           <div className="mt-4 text-center text-sm text-gray-500">
             COPYRIGHT © 대한재능개발원 ALL RIGHTS RESERVED.
