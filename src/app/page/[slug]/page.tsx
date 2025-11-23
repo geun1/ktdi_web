@@ -1,7 +1,12 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-
 import { Metadata } from 'next';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import TableOfContents from '@/components/ui/TableOfContents';
+import RelatedPages from '@/components/ui/RelatedPages';
+import ShareButtons from '@/components/ui/ShareButtons';
+import FloatingCTA from '@/components/ui/FloatingCTA';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,23 +50,72 @@ export default async function DynamicPage({ params }: PageProps) {
     where: {
       slug: decodedSlug,
     },
+    include: {
+      category: true,
+    },
   });
 
   if (!page) {
     notFound();
   }
 
+  // Get related pages from same category
+  const relatedPages = await prisma.page.findMany({
+    where: {
+      categoryId: page.categoryId,
+      id: { not: page.id },
+    },
+    take: 3,
+    orderBy: {
+      order: 'asc',
+    },
+    include: {
+      category: true,
+    },
+  });
+
   return (
-    <div className="bg-white min-h-screen py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-primary mb-8 border-b pb-4">
-          {page.title}
-        </h1>
-        <div 
-          className="prose prose-lg max-w-none text-gray-700 [&_img]:max-w-full [&_img]:h-auto [&_img]:block [&_img]:my-6 [&_img]:rounded-lg [&_p]:text-gray-700 [&_p]:leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: page.content }}
-        />
+    <>
+      <div className="bg-white min-h-screen py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb
+            items={[
+              { label: page.category.name },
+              { label: page.title },
+            ]}
+          />
+          
+          <div className="flex gap-8">
+            {/* Main Content */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-4xl font-bold text-primary mb-8 border-b pb-4">
+                {page.title}
+              </h1>
+              <div 
+                className="rich-content"
+                dangerouslySetInnerHTML={{ __html: page.content }}
+              />
+              
+              <ShareButtons title={page.title} />
+              
+              <RelatedPages
+                pages={relatedPages.map((p) => ({
+                  id: p.id,
+                  slug: p.slug,
+                  title: p.title,
+                  categoryName: p.category.name,
+                }))}
+              />
+            </div>
+
+            {/* Table of Contents Sidebar */}
+            <TableOfContents content={page.content} />
+          </div>
+        </div>
       </div>
-    </div>
+      
+      <FloatingCTA />
+      <ScrollToTop />
+    </>
   );
 }
