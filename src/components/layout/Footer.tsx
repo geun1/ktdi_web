@@ -63,6 +63,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700">
           <div className="text-sm text-gray-400 space-y-1">
+            <p>교육법인 대한재능개발원 대표 김덕규</p>
             <p>교육법인 대한재능개발원장 김성곤</p>
             <p>사업자등록번호: 683-86-03126</p>
             <p>
