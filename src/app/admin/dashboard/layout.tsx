@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { logout } from '../actions';
-import { LayoutDashboard, Menu, FileText, LogOut } from 'lucide-react';
+import { LayoutDashboard, Menu, FileText, LogOut, Megaphone } from 'lucide-react';
 
 export default async function AdminDashboardLayout({
   children,
@@ -44,6 +44,13 @@ export default async function AdminDashboardLayout({
           >
             <FileText size={20} />
             <span>Pages</span>
+          </Link>
+          <Link
+            href="/admin/dashboard/popups"
+            className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+          >
+            <Megaphone size={20} />
+            <span>Popups</span>
           </Link>
         </nav>
         <div className="p-4 border-t">

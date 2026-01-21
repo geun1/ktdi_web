@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PopupManager from "@/components/PopupManager";
 
 // Force dynamic rendering to ensure navbar can access database at runtime
 export const dynamic = 'force-dynamic';
@@ -58,6 +59,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <PopupManager />
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ export default defineConfig({
   },
   engine: "classic",
   datasource: {
-    url: env("POSTGRES_PRISMA_URL"),
+    // 마이그레이션 시 직접 연결 사용 (pgbouncer 미지원)
+    url: env("POSTGRES_URL_NON_POOLING"),
   },
 });
