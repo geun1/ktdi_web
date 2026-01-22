@@ -72,11 +72,11 @@ export async function updatePopup(formData: FormData) {
   redirect('/admin/dashboard/popups');
 }
 
-export async function deletePopup(formData: FormData) {
+export async function deletePopup(formData: FormData): Promise<void> {
   const id = formData.get('id') as string;
 
   if (!id) {
-    return { error: 'ID가 필요합니다' };
+    return;
   }
 
   try {
@@ -85,19 +85,17 @@ export async function deletePopup(formData: FormData) {
     });
     revalidatePath('/admin/dashboard/popups');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
     console.error('Failed to delete popup:', error);
-    return { error: '팝업 삭제에 실패했습니다' };
   }
 }
 
-export async function togglePopupActive(formData: FormData) {
+export async function togglePopupActive(formData: FormData): Promise<void> {
   const id = formData.get('id') as string;
   const isActive = formData.get('isActive') === 'true';
 
   if (!id) {
-    return { error: 'ID가 필요합니다' };
+    return;
   }
 
   try {
@@ -107,9 +105,7 @@ export async function togglePopupActive(formData: FormData) {
     });
     revalidatePath('/admin/dashboard/popups');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
     console.error('Failed to toggle popup:', error);
-    return { error: '팝업 상태 변경에 실패했습니다' };
   }
 }
