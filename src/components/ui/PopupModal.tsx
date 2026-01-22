@@ -37,14 +37,7 @@ export default function PopupModal({ popup, onClose, onHideToday }: PopupModalPr
         {/* Content */}
         <div className="flex-1 overflow-y-auto px-6 pb-5">
           <div
-            className="text-gray-600 text-[15px] leading-relaxed
-              [&_h1]:text-lg [&_h1]:font-semibold [&_h1]:text-gray-900 [&_h1]:mb-3 [&_h1]:mt-0
-              [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-gray-900 [&_h2]:mb-2 [&_h2]:mt-0
-              [&_p]:my-2
-              [&_strong]:text-gray-800 [&_strong]:font-medium
-              [&_ul]:my-2 [&_ul]:pl-5 [&_li]:my-1
-              [&_img]:rounded-lg [&_img]:my-4 [&_img]:mx-auto [&_img]:max-w-full [&_img]:h-auto
-              [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2"
+            className="rich-content popup-content"
             dangerouslySetInnerHTML={{ __html: popup.content }}
           />
         </div>

@@ -247,6 +247,84 @@ body {
   color: #0ea5e9;
 }
 
+/* Quill Editor Specific Styles */
+.rich-content u {
+  text-decoration: underline;
+}
+
+.rich-content s,
+.rich-content strike {
+  text-decoration: line-through;
+}
+
+/* Quill size classes */
+.rich-content .ql-size-small {
+  font-size: 0.75em;
+}
+
+.rich-content .ql-size-large {
+  font-size: 1.5em;
+}
+
+.rich-content .ql-size-huge {
+  font-size: 2.5em;
+}
+
+/* Preserve Quill inline styles */
+.rich-content [style] {
+  /* Allow inline styles from Quill editor */
+}
+
+/* Popup-specific rich content overrides */
+.popup-content {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.popup-content h1 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.popup-content h1:first-child {
+  margin-top: 0;
+}
+
+.popup-content h2 {
+  font-size: 1.125rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.popup-content h2:first-child {
+  margin-top: 0;
+}
+
+.popup-content h3 {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.popup-content h3:first-child {
+  margin-top: 0;
+}
+
+.popup-content p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.popup-content img {
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
 .rich-content img {
   max-width: 100%;
   height: auto;
