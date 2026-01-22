@@ -15,19 +15,19 @@ interface PopupModalProps {
 export default function PopupModal({ popup, onClose, onHideToday }: PopupModalProps) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-[2px]"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg sm:max-w-xl md:max-w-2xl max-h-[85vh] flex flex-col overflow-hidden animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
+        className="bg-white rounded-2xl w-full max-w-md sm:max-w-lg md:max-w-xl max-h-[80vh] flex flex-col overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative px-6 py-4 border-b bg-gradient-to-r from-primary/10 to-primary/5">
-          <h2 className="text-lg font-bold text-gray-900 pr-8">{popup.title}</h2>
+        <div className="flex items-center justify-between px-6 py-4">
+          <h2 className="text-lg font-semibold text-gray-900">{popup.title}</h2>
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+            className="p-1.5 -mr-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="닫기"
           >
             <X size={20} />
@@ -35,34 +35,34 @@ export default function PopupModal({ popup, onClose, onHideToday }: PopupModalPr
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto px-6 pb-5">
           <div
-            className="prose prose-sm max-w-none rich-content
-              prose-headings:text-gray-900 prose-headings:font-bold
-              prose-p:text-gray-700 prose-p:leading-relaxed
-              prose-strong:text-primary prose-strong:font-semibold
-              prose-img:rounded-lg prose-img:shadow-md prose-img:mx-auto
-              [&_img]:max-w-full [&_img]:h-auto"
+            className="text-gray-600 text-[15px] leading-relaxed
+              [&_h1]:text-lg [&_h1]:font-semibold [&_h1]:text-gray-900 [&_h1]:mb-3 [&_h1]:mt-0
+              [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-gray-900 [&_h2]:mb-2 [&_h2]:mt-0
+              [&_p]:my-2
+              [&_strong]:text-gray-800 [&_strong]:font-medium
+              [&_ul]:my-2 [&_ul]:pl-5 [&_li]:my-1
+              [&_img]:rounded-lg [&_img]:my-4 [&_img]:mx-auto [&_img]:max-w-full [&_img]:h-auto
+              [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2"
             dangerouslySetInnerHTML={{ __html: popup.content }}
           />
         </div>
 
-        {/* Footer Buttons */}
-        <div className="border-t bg-gray-50 px-4 py-3">
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-            <button
-              onClick={onHideToday}
-              className="flex-1 px-4 py-3 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-xl hover:bg-gray-100 transition-colors"
-            >
-              오늘 하루 보지 않기
-            </button>
-            <button
-              onClick={onClose}
-              className="flex-1 px-4 py-3 text-sm font-medium text-white bg-primary rounded-xl hover:bg-primary/90 transition-colors"
-            >
-              닫기
-            </button>
-          </div>
+        {/* Footer */}
+        <div className="flex gap-3 px-6 py-4">
+          <button
+            onClick={onHideToday}
+            className="flex-1 py-2.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            1시간 동안 보지 않기
+          </button>
+          <button
+            onClick={onClose}
+            className="flex-1 py-2.5 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            확인
+          </button>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ interface Popup {
   content: string;
 }
 
-const HIDE_DURATION_MS = 24 * 60 * 60 * 1000; // 24시간 (밀리초)
+const HIDE_DURATION_MS = 1 * 60 * 60 * 1000; // 1시간 (밀리초)
 
 function getStorageKey(popupId: string) {
   return `popup_hidden_${popupId}`;
@@ -24,7 +24,7 @@ function isPopupHidden(popupId: string): boolean {
   const hiddenUntilTime = parseInt(hiddenUntil, 10);
   const now = Date.now();
 
-  // 24시간이 지났으면 숨김 해제
+  // 1시간이 지났으면 숨김 해제
   if (now >= hiddenUntilTime) {
     localStorage.removeItem(getStorageKey(popupId));
     return false;
